@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_nav_routes"
+
+    app:startDestination="@id/taskListFragment">
+
+    <fragment
+        android:id="@+id/taskListFragment"
+        android:name="com.bhuvancom.redcatscheduler.ui.TaskListFragment"
+        android:label="@string/task_list"
+        tools:layout="@layout/fragment_task_list">
+        <action
+            android:id="@+id/action_taskListFragment_to_taskDetailFragment"
+            app:destination="@id/taskDetailFragment" />
+        <action
+            android:id="@+id/action_taskListFragment_to_addNewTask"
+            app:destination="@id/addNewTask" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskDetailFragment"
+        android:name="com.bhuvancom.redcatscheduler.ui.TaskDetailFragment"
+        android:label="@string/task_detail"
+        tools:layout="@layout/fragment_task_details">
+        <argument
+            android:name="taskId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewTask"
+        android:name="com.bhuvancom.redcatscheduler.ui.AddNewTask"
+        android:label="@string/add_new_task"
+        tools:layout="@layout/fragment_add_edit_task">
+        <argument
+            android:name="taskId"
+            android:defaultValue="-1"
+            app:argType="integer" />
+    </fragment>
+</navigation>

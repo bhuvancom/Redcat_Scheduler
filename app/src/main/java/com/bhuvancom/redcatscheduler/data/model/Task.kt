@@ -2,6 +2,7 @@ package com.bhuvancom.redcatscheduler.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.*
 
 /**
 @author Bhuvaneshvar
@@ -12,6 +13,10 @@ Project Redcat Scheduler
 @Entity
 data class Task(
     @PrimaryKey(autoGenerate = true)
-    val id: Int? = null,
-
+    val taskId: Int? = null,
+    val taskName: String = "",
+    val taskPriority: TaskPriority = TaskPriority.HIGH,
+    val taskTime: Date = Date(),
+    val createdOn: Date = Date(),
+    val data: String = "",
 )

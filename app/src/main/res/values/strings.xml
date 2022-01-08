@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Redcat Scheduler</string>
+    <string name="task_list">Task List</string>
+    <string name="task_detail">Task Detail</string>
+    <string name="add_new_task">AddNewTask</string>
+    <string name="retry">Retry</string>
+    <string name="no_result_found">No Result found</string>
+    <string name="some_error">Error loading data</string>
 </resources>
