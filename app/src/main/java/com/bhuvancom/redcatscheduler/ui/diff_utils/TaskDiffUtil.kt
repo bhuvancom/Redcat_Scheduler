@@ -11,7 +11,7 @@ Project Redcat Scheduler
  */
 class TaskDiffUtil : DiffUtil.ItemCallback<Task>() {
     override fun areItemsTheSame(oldItem: Task, newItem: Task): Boolean =
-        oldItem.taskId == newItem.taskId
+        oldItem.taskId == newItem.taskId && oldItem.taskName == newItem.taskName
 
     override fun areContentsTheSame(oldItem: Task, newItem: Task): Boolean = oldItem == newItem
 }

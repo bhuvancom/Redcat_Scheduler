@@ -3,4 +3,5 @@
     <dimen name="elevation">8dp</dimen>
     <dimen name="padding">16dp</dimen>
     <dimen name="margin">16dp</dimen>
+    <dimen name="_8_dp">8dp</dimen>
 </resources>

@@ -2,6 +2,7 @@ package com.bhuvancom.redcatscheduler.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.bhuvancom.redcatscheduler.data.model.TaskType.TaskType
 import java.util.*
 
 /**
@@ -16,7 +17,10 @@ data class Task(
     val taskId: Int? = null,
     val taskName: String = "",
     val taskPriority: TaskPriority = TaskPriority.HIGH,
+    val taskType: TaskType = TaskType.NORMAL,
     val taskTime: Date = Date(),
     val createdOn: Date = Date(),
+    val updatedOn: Date = Date(),
     val data: String = "",
+    val isRepeating: Boolean = false,
 )

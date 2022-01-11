@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_nav_routes"
-
     app:startDestination="@id/taskListFragment">
 
     <fragment
@@ -13,7 +12,11 @@
         tools:layout="@layout/fragment_task_list">
         <action
             android:id="@+id/action_taskListFragment_to_taskDetailFragment"
-            app:destination="@id/taskDetailFragment" />
+            app:destination="@id/taskDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <action
             android:id="@+id/action_taskListFragment_to_addNewTask"
             app:destination="@id/addNewTask" />
@@ -27,7 +30,7 @@
             android:name="taskId"
             app:argType="integer" />
     </fragment>
-    <fragment
+    <dialog
         android:id="@+id/addNewTask"
         android:name="com.bhuvancom.redcatscheduler.ui.AddNewTask"
         android:label="@string/add_new_task"
@@ -36,5 +39,5 @@
             android:name="taskId"
             android:defaultValue="-1"
             app:argType="integer" />
-    </fragment>
+    </dialog>
 </navigation>

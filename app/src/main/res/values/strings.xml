@@ -6,4 +6,32 @@
     <string name="retry">Retry</string>
     <string name="no_result_found">No Result found</string>
     <string name="some_error">Error loading data</string>
+    <string name="enter_title">Enter title</string>
+    <string name="save">Save</string>
+    <string name="enter_data">Enter data/link</string>
+    <string name="edit_task">Edit task</string>
+    <string name="select_task_type">Select task type</string>
+    <string name="select_task_priority">Select task priority</string>
+    <string name="task_updated">Task updated</string>
+    <string name="task_added">Task Added</string>
+    <string name="task_priority">Priority : %s</string>
+    <string name="task_type">Type : %s</string>
+    <string name="last_updated">Last updated : %s</string>
+    <string name="last_run">"Last Run : %s "</string>
+    <string name="task_timer">Task timer : %s</string>
+    <string name="task_created_on">Created on : %s</string>
+    <string name="execution_time">Execution time : %s</string>
+    <string name="repeated_task">Repeat</string>
+    <string name="undo">Undo</string>
+    <string name="deleted">Deleted</string>
+    <string name="task_execution_history">Task execution history</string>
+    <string-array name="task_priority">
+        <item>High</item>
+        <item>Medium</item>
+        <item>Low</item>
+    </string-array>
+    <string-array name="task_type">
+        <item>HTTP</item>
+        <item>NORMAL</item>
+    </string-array>
 </resources>

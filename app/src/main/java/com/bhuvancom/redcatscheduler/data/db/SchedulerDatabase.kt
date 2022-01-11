@@ -15,27 +15,32 @@ Date    08-Jan-2022
 Time   08:53 PM
 Project Redcat Scheduler
  */
-@Database(entities = [Task::class, TaskExecution::class], version = 1)
+@Database(
+    entities = [
+        Task::class,
+        TaskExecution::class
+    ],
+    version = 1
+)
 @TypeConverters(DateConvertor::class)
 abstract class SchedulerDatabase : RoomDatabase() {
     abstract fun getTaskDao(): TaskDao
 
     companion object {
         @Volatile
-        private var instance: SchedulerDatabase? = null
+        private var INSTANCE: SchedulerDatabase? = null
         fun getDatabase(context: Context): SchedulerDatabase {
-            val tempInstance = instance
+            val tempInstance = INSTANCE
             if (tempInstance != null) return tempInstance
             synchronized(this) {
-                val instance = Room.databaseBuilder(
+                return Room.databaseBuilder(
                     context,
                     SchedulerDatabase::class.java,
                     SchedulerDatabase::class.java.simpleName
-                ).build()
-                this.instance = instance
-                return this.instance!!
+                ).build().also {
+                    this.INSTANCE = it
+                }
             }
         }
-
     }
 }

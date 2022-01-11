@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.viewbinding.ViewBinding
+import com.bhuvancom.redcatscheduler.viewModel.TaskViewModel
 
 /**
 @author Bhuvaneshvar
@@ -17,7 +19,7 @@ abstract class BaseFragment<VBind : ViewBinding> : Fragment() {
     private var _binding: VBind? = null
     protected val binding get() = _binding!!
     protected abstract fun getViewBinding(): VBind
-
+    protected val taskViewModel by viewModels<TaskViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +29,7 @@ abstract class BaseFragment<VBind : ViewBinding> : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         return binding.root
     }
@@ -44,8 +46,8 @@ abstract class BaseFragment<VBind : ViewBinding> : Fragment() {
         _binding = getViewBinding()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
+    override fun onDestroy() {
+        super.onDestroy()
         _binding = null
     }
 }

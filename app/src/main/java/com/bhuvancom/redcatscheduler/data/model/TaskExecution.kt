@@ -17,5 +17,5 @@ data class TaskExecution(
     val taskId: Int,
     val isSuccess: Boolean,
     val executionTime: Date = Date(),
-
-    )
+    val msg: String = "",
+)
