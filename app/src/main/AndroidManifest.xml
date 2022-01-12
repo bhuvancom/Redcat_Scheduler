@@ -29,6 +29,9 @@
             android:name=".util.TaskScheduler"
             android:enabled="true"
             android:exported="false" />
+        <service
+            android:name=".services.TaskService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
 
 </manifest>

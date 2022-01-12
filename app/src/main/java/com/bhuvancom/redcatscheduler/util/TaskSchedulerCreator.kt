@@ -2,10 +2,15 @@ package com.bhuvancom.redcatscheduler.util
 
 import android.app.AlarmManager
 import android.app.PendingIntent
+import android.app.job.JobInfo
+import android.app.job.JobScheduler
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.os.PersistableBundle
 import android.util.Log
 import com.bhuvancom.redcatscheduler.data.model.Task
+import com.bhuvancom.redcatscheduler.services.TaskService
 
 /**
 @author Bhuvaneshvar
@@ -14,6 +19,22 @@ Time   12:34 AM
 Project Redcat Scheduler
  */
 class TaskSchedulerCreator(private val context: Context) {
+    fun createTask(task: Task) {
+        val component = ComponentName(context, TaskService::class.java)
+        val job = JobInfo.Builder(task.taskId ?: 0, component).apply {
+            setExtras(PersistableBundle().apply {
+                putInt(Constants.KEY_TASK_ID, task.taskId ?: -1)
+            })
+            if (task.isRepeating) {
+                this.setPeriodic(24 * 60 * 60 * 1000)
+            }
+            setRequiresDeviceIdle(false)
+            setMinimumLatency(1)
+            setRequiresCharging(false)
+        }
+        context.getSystemService(JobScheduler::class.java).schedule(job.build())
+    }
+
     fun create(task: Task) {
         val intent = Intent(context, TaskScheduler::class.java)
         intent.putExtra("taskId", task.taskId ?: -1)
@@ -41,7 +62,7 @@ class TaskSchedulerCreator(private val context: Context) {
         Log.d(TAG, "create: $task")
     }
 
-    companion object{
+    companion object {
         private const val TAG = "TaskSchedulerCreator"
     }
 }
